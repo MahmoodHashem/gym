@@ -10,13 +10,11 @@ import 'bmi.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:gym/diets/dietDetails.dart';
 
-
 void main() {
-  runApp(MaterialApp(
-    locale: Locale('fa'),
+  runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.dark(),
-    home:Home(),
+    home: Home(),
   ));
 }
 
@@ -30,22 +28,31 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _index = 3;
 
-  child(){
-    switch(_index){
-      case 3: return Workouts();
-      case 2: return Plans();
-      case 1: return Diet();
-      case 0: return Tips();
+  child() {
+    switch (_index) {
+      case 3:
+        return Workouts();
+      case 2:
+        return Plans();
+      case 1:
+        return Diet();
+      case 0:
+        return Tips();
     }
   }
-  var title = ['حرکات','برنامه ها', 'رژیم غذایی','معلومات'];
+
+  var title = ['حرکات', 'برنامه ها', 'رژیم غذایی', 'معلومات'];
   int titleNumber = 3;
-  Title(){
-    switch(_index){
-      case 3: return 'حرکات';
-      case 2: return 'برنامه ها';
-      case 1: return 'رژیم غذایی';
-      case 0: return 'معلومات';
+  Title() {
+    switch (_index) {
+      case 3:
+        return 'حرکات';
+      case 2:
+        return 'برنامه ها';
+      case 1:
+        return 'رژیم غذایی';
+      case 0:
+        return 'معلومات';
     }
   }
 
@@ -68,8 +75,11 @@ class _HomeState extends State<Home> {
               DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.black54,
-                  image: DecorationImage(image: AssetImage('assets/pictures/wallpaper.jpg',),
-                  fit: BoxFit.fill),
+                  image: DecorationImage(
+                      image: AssetImage(
+                        'assets/pictures/wallpaper.jpg',
+                      ),
+                      fit: BoxFit.fill),
                 ),
                 child: Text(
                   '',
@@ -87,14 +97,18 @@ class _HomeState extends State<Home> {
                 ),
                 child: ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text('تنظیمات',
-                  textAlign: TextAlign.end,),
+                  title: Text(
+                    'تنظیمات',
+                    textAlign: TextAlign.end,
+                  ),
                   onTap: () {
                     // Handle option 1 selection
                   },
                 ),
               ),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               NeumorphicButton(
                 style: NeumorphicStyle(
                   color: Colors.black54,
@@ -102,15 +116,22 @@ class _HomeState extends State<Home> {
                 ),
                 child: ListTile(
                   leading: Icon(Icons.calculate),
-                  title: Text('BMI',
-                    textAlign: TextAlign.end,),
+                  title: Text(
+                    'BMI',
+                    textAlign: TextAlign.end,
+                  ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BMICalculatorScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BMICalculatorScreen()));
                     // Handle option 1 selection
                   },
                 ),
               ),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               NeumorphicButton(
                 style: NeumorphicStyle(
                   color: Colors.black54,
@@ -118,14 +139,18 @@ class _HomeState extends State<Home> {
                 ),
                 child: ListTile(
                   leading: Icon(Icons.info_outline),
-                  title: Text('درباره',
-                  textAlign: TextAlign.end,),
+                  title: Text(
+                    'درباره',
+                    textAlign: TextAlign.end,
+                  ),
                   onTap: () {
                     // Handle option 2 selection
                   },
                 ),
               ),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               // Add more ListTile widgets for additional menu options
             ],
           ),
@@ -152,56 +177,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-class App extends StatefulWidget {
-  App({Key? key, }) : super(key: key);
-
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-
-  int i = 0;
-
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> v = [
-      Container(
-          color: Colors.teal,
-          height: 100,
-          width: 100),];
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Add'),
-      ),
-      body: Center(
-        child: Neumorphic(
-          style: NeumorphicStyle(
-            depth: -3,
-            color: Colors.black,
-          ),
-          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-          child: Column(
-            children: v,
-          ),
-        ),
-      ),
-      floatingActionButton: ElevatedButton(onPressed: (){
-        setState(() {
-            v.add(Container(
-                color: Colors.teal,
-                height: 100,
-                width: 100));
-        });
-      }, child: Text('add')),
-    );
-  }
-}
-
-
-
-
 
